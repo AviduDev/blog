@@ -1,6 +1,6 @@
 import SearchForm from "@/components/SearchForm";
 import Image from "next/image";
-import BlogCard from "@/components/BlogCard";
+import BlogCard, { BlogCardType } from "@/components/BlogCard";
 import { client } from "@/sanity/lib/client";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
 
