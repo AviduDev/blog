@@ -4,13 +4,13 @@ import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import { Author, Post } from "@/sanity/types";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 export type BlogCardType = {
   _createdAt: string;
   views: number;
   _id: number;
+  // @ts-ignore
   author: any;
   title: string;
   category: string;
@@ -40,6 +40,8 @@ const BlogCard = ({ post }: { post: BlogCardType }) => {
         {views}
         <EyeIcon />
       </span>
+
+      {/* authors details */}
       <Link href={`/user/${author?._id}`}>
         {author?.name}
         <Image
@@ -52,6 +54,8 @@ const BlogCard = ({ post }: { post: BlogCardType }) => {
           className="rounded-full"
         />
       </Link>
+
+      {/* post details */}
       <Link href={`/posts/${_id}`}>
         <h3 className="font-bold">{title}</h3>
       </Link>

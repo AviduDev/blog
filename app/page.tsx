@@ -1,5 +1,4 @@
 import SearchForm from "@/components/SearchForm";
-import Image from "next/image";
 import BlogCard, { BlogCardType } from "@/components/BlogCard";
 import { client } from "@/sanity/lib/client";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
@@ -28,7 +27,7 @@ const posts = await client.fetch(POSTS_QUERY);
 
         <ul>
           {posts?.length > 0 ? (
-            posts.map((post: BlogCardType, index: number) => (
+            posts.map((post: BlogCardType) => (
               <BlogCard key={post?._id} post={post}/>
             ))
           ) : ( <p>No Blog Posts Found</p> )}
