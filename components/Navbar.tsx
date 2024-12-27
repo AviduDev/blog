@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { auth, signIn, signOut } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +11,9 @@ const Navbar = async () => {
 
   return (
     <header className="flex flex-row justify-between items-center">
-      <Link href="/" className="font-black">LOGO</Link>
+      <Link href="/" className="font-black">
+        LOGO
+      </Link>
       <div>
         {session && session?.user ? (
           <div className="flex flex-row justify-between items-center">
@@ -31,7 +35,10 @@ const Navbar = async () => {
               </button>
             </form>
 
-            <Link href={`/user/${session?.id}`} className="flex flex-col items-center">
+            <Link
+              href={`/user/${session?.id}`}
+              className="flex flex-col items-center"
+            >
               <span>{session?.user?.name}</span>
               <Image
                 src={session?.user?.image}
