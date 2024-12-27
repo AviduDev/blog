@@ -12,6 +12,7 @@ export const author = defineType({
     defineField({
       name: "id",
       type: "number",
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
     defineField({
       name: "name",
@@ -26,6 +27,7 @@ export const author = defineType({
         source: "name",
         isUnique: isUniqueAcrossAllDocuments,
       },
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
     defineField({
       name: "username",
@@ -42,10 +44,12 @@ export const author = defineType({
     defineField({
       name: "image",
       type: "image",
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
     defineField({
       name: "bio",
       type: "text",
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
   ],
   preview: {

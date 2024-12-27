@@ -8,6 +8,7 @@ export const post = defineType({
     defineField({
       name: "title",
       type: "string",
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
     defineField({
       name: "slug",
@@ -15,6 +16,7 @@ export const post = defineType({
       options: {
         source: "title",
       },
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
     defineField({
       name: "author",
@@ -22,27 +24,33 @@ export const post = defineType({
       to: {
         type: "author",
       },
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
     defineField({
       name: "category",
       type: "string",
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
     defineField({
       name: "views",
       type: "number",
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
     defineField({
       name: "description",
       type: "text",
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
     defineField({
       name: "image",
       type: "image",
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
     defineField({
       name: "content",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule) => Rule.required().error("Please enter your name"),
     }),
   ],
 });

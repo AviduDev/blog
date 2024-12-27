@@ -74,9 +74,9 @@ export type Post = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title: string;
+  title?: string;
   slug?: Slug;
-  author: {
+  author?: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -85,7 +85,7 @@ export type Post = {
   category?: string;
   views?: number;
   description?: string;
-  image: {
+  image?: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -122,13 +122,13 @@ export type Author = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  id: number;
-  name: string;
+  id?: number;
+  name?: string;
   slug?: Slug;
   username?: string;
   email?: string;
-  image: {
-    asset: {
+  image?: {
+    asset?: {
       _ref: string;
       _type: "reference";
       _weak?: boolean;

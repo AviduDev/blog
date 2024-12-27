@@ -14,19 +14,6 @@ export default async function Home({
 
 const posts = await client.fetch(POSTS_QUERY);
 
-  // tempory post query
-  // const posts = [
-  //   {
-  //     _createdAt: new Date(),
-  //     views: 55,
-  //     author: { _id: 1, name: "අවිදු සම්පත්" },
-  //     _id: 1,
-  //     description: "ths is a description",
-  //     image: "https://placehold.co/600x400",
-  //     category: "Astronomy",
-  //     title: "Neptune Planet Tour",
-  //   },
-  // ];
   return (
     <main>
       <section className="flex flex-col items-center border border-black border-solid p-10 bg-pink-300">

@@ -5,8 +5,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { Author, Post } from "@/sanity/types";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-export type BlogCardType = Omit<Post, "author"> & { author?: Author }
+export type BlogCardType = {
+  _createdAt: string;
+  views: number;
+  _id: number;
+  author: any;
+  title: string;
+  category: string;
+  image: SanityImageSource;
+  description: string;
+};
 
 const BlogCard = ({ post }: { post: BlogCardType }) => {
   const {
@@ -21,7 +31,10 @@ const BlogCard = ({ post }: { post: BlogCardType }) => {
   } = post;
 
   return (
-    <li key={_id} className="flex flex-col w-fit m-5 p-5 border border-solid border-black">
+    <li
+      key={_id}
+      className="flex flex-col w-fit m-5 p-5 border border-solid border-black"
+    >
       <p>{formatDate(_createdAt)}</p>
       <span className="flex flex-row">
         {views}
@@ -29,7 +42,15 @@ const BlogCard = ({ post }: { post: BlogCardType }) => {
       </span>
       <Link href={`/user/${author?._id}`}>
         {author?.name}
- 
+        <Image
+          src={urlFor(author.image).url()}
+          alt={author.name}
+          width={60}
+          height={60}
+          placeholder="blur"
+          blurDataURL={urlFor(image).width(24).height(24).blur(10).url()}
+          className="rounded-full"
+        />
       </Link>
       <Link href={`/posts/${_id}`}>
         <h3 className="font-bold">{title}</h3>
