@@ -11,7 +11,7 @@ export type BlogCardType = {
   views: number;
   _id: number;
   // @ts-expect-error
-  author: any;
+  author: Array;
   title: string;
   category: string;
   image: SanityImageSource;
