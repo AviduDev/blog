@@ -10,7 +10,7 @@ export type BlogCardType = {
   _createdAt: string;
   views: number;
   _id: number;
-  // @ts-ignore
+  // @ts-expect-error
   author: any;
   title: string;
   category: string;
