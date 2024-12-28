@@ -10,8 +10,9 @@ export default async function Home({
 }) {
   // search query
   const query = (await searchParams).query;
+  const params = { search: query || null };
 
-const posts = await client.fetch(POSTS_QUERY);
+const posts = await client.fetch(POSTS_QUERY, params);
 
   return (
     <main>
@@ -25,7 +26,7 @@ const posts = await client.fetch(POSTS_QUERY);
           {query ? `Serch results for "${query}"` : "All Blog Posts"}
         </h2>
 
-        <ul>
+        <ul className="flex flex-row flex-wrap">
           {posts?.length > 0 ? (
             posts.map((post: BlogCardType) => (
               <BlogCard key={post?._id} post={post}/>
