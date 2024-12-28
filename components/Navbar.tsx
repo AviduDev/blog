@@ -15,7 +15,7 @@ const Navbar = async () => {
         LOGO
       </Link>
       <div>
-        {session && session?.user ? (
+        {session && session.user ? (
           <div className="flex flex-row justify-between items-center">
             <Link href="/startup/create">
               <Button variant="outline">
@@ -36,13 +36,13 @@ const Navbar = async () => {
             </form>
 
             <Link
-              href={`/user/${session?.id}`}
+              href={`/user/${session.id}`}
               className="flex flex-col items-center"
             >
               <span>{session?.user?.name}</span>
               <Image
-                src={session?.user?.image}
-                alt={session?.user?.name}
+                src={session.user.image}
+                alt={session.user.name}
                 width={30}
                 height={30}
                 className="rounded-full"
